@@ -1,0 +1,16 @@
+global:
+  variables:
+    BASE_URL: https://example.org
+    # BASE_URL: https://jsonplaceholder.typicode.com
+    SKIP_TLS_VERIFY: "false"
+    TIMEOUT: "5s"
+    PARALLEL: "true"
+
+requests:
+  - name: Secure Health Check
+    # url: ${BASE_URL}/health
+    url: ${BASE_URL}/
+    method: GET
+    validation:
+      status: 200
+      match: "UP|example"
